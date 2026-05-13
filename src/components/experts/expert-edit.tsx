@@ -73,7 +73,7 @@ export function ExpertEdit({
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <Button variant="ghost" size="sm" className="text-zinc-400 hover:text-white">
           <Pencil size={16} />
         </Button>

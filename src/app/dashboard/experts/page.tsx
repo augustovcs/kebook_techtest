@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { useExperts, useCreateExpert, useDeleteExpert } from '@/hooks/use-experts';
+import { useExperts, useCreateExpert, useUpdateExpert, useDeleteExpert } from '@/hooks/use-experts';
 import { ExpertsTable } from '@/components/experts/experts-table';
 import { ExpertDialog } from '@/components/experts/expert-dialog';
+import { ExpertEdit } from '@/components/experts/expert-edit';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -17,6 +18,7 @@ export default function ExpertsPage() {
 
   const { data, isLoading, error } = useExperts(search, page);
   const createExpert = useCreateExpert();
+  const updateExpert = useUpdateExpert();
   const deleteExpert = useDeleteExpert();
 
   const handleCreate = async (formData: any) => {
@@ -26,6 +28,15 @@ export default function ExpertsPage() {
       setDialogOpen(false);
     } catch (error) {
       toast.error('Erro ao criar expert');
+    }
+  };
+
+  const handleUpdate = async (id: string, formData: any) => {
+    try {
+      await updateExpert.mutateAsync({ id, data: formData });
+      toast.success('Expert atualizado com sucesso');
+    } catch (error) {
+      toast.error('Erro ao atualizar expert');
     }
   };
 
@@ -80,7 +91,9 @@ export default function ExpertsPage() {
         <>
           <ExpertsTable
             experts={data.data}
+            onEdit={handleUpdate}
             onDelete={handleDelete}
+            isEditing={updateExpert.isPending}
             isDeleting={deleteExpert.isPending}
           />
           {data.totalPages > 1 && (
