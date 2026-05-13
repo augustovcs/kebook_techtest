@@ -37,7 +37,7 @@ export type ProductSumAggregateOutputType = {
 export type ProductMinAggregateOutputType = {
   id: string | null
   name: string | null
-  type: string | null
+  type: $Enums.ProductType | null
   price: number | null
   targetAudience: string | null
   mainPain: string | null
@@ -50,7 +50,7 @@ export type ProductMinAggregateOutputType = {
 export type ProductMaxAggregateOutputType = {
   id: string | null
   name: string | null
-  type: string | null
+  type: $Enums.ProductType | null
   price: number | null
   targetAudience: string | null
   mainPain: string | null
@@ -212,7 +212,7 @@ export type ProductGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ProductGroupByOutputType = {
   id: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -248,7 +248,7 @@ export type ProductWhereInput = {
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   id?: Prisma.StringFilter<"Product"> | string
   name?: Prisma.StringFilter<"Product"> | string
-  type?: Prisma.StringFilter<"Product"> | string
+  type?: Prisma.EnumProductTypeFilter<"Product"> | $Enums.ProductType
   price?: Prisma.FloatFilter<"Product"> | number
   targetAudience?: Prisma.StringFilter<"Product"> | string
   mainPain?: Prisma.StringFilter<"Product"> | string
@@ -283,7 +283,7 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ProductWhereInput[]
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   name?: Prisma.StringFilter<"Product"> | string
-  type?: Prisma.StringFilter<"Product"> | string
+  type?: Prisma.EnumProductTypeFilter<"Product"> | $Enums.ProductType
   price?: Prisma.FloatFilter<"Product"> | number
   targetAudience?: Prisma.StringFilter<"Product"> | string
   mainPain?: Prisma.StringFilter<"Product"> | string
@@ -320,7 +320,7 @@ export type ProductScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ProductScalarWhereWithAggregatesInput | Prisma.ProductScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Product"> | string
   name?: Prisma.StringWithAggregatesFilter<"Product"> | string
-  type?: Prisma.StringWithAggregatesFilter<"Product"> | string
+  type?: Prisma.EnumProductTypeWithAggregatesFilter<"Product"> | $Enums.ProductType
   price?: Prisma.FloatWithAggregatesFilter<"Product"> | number
   targetAudience?: Prisma.StringWithAggregatesFilter<"Product"> | string
   mainPain?: Prisma.StringWithAggregatesFilter<"Product"> | string
@@ -333,7 +333,7 @@ export type ProductScalarWhereWithAggregatesInput = {
 export type ProductCreateInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -348,7 +348,7 @@ export type ProductCreateInput = {
 export type ProductUncheckedCreateInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -363,7 +363,7 @@ export type ProductUncheckedCreateInput = {
 export type ProductUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -378,7 +378,7 @@ export type ProductUpdateInput = {
 export type ProductUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -393,7 +393,7 @@ export type ProductUncheckedUpdateInput = {
 export type ProductCreateManyInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -406,7 +406,7 @@ export type ProductCreateManyInput = {
 export type ProductUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -418,7 +418,7 @@ export type ProductUpdateManyMutationInput = {
 export type ProductUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -532,6 +532,10 @@ export type ProductUncheckedUpdateManyWithoutExpertNestedInput = {
   deleteMany?: Prisma.ProductScalarWhereInput | Prisma.ProductScalarWhereInput[]
 }
 
+export type EnumProductTypeFieldUpdateOperationsInput = {
+  set?: $Enums.ProductType
+}
+
 export type FloatFieldUpdateOperationsInput = {
   set?: number
   increment?: number
@@ -571,7 +575,7 @@ export type ProductUpdateOneRequiredWithoutCopyNestedInput = {
 export type ProductCreateWithoutExpertInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -585,7 +589,7 @@ export type ProductCreateWithoutExpertInput = {
 export type ProductUncheckedCreateWithoutExpertInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -627,7 +631,7 @@ export type ProductScalarWhereInput = {
   NOT?: Prisma.ProductScalarWhereInput | Prisma.ProductScalarWhereInput[]
   id?: Prisma.StringFilter<"Product"> | string
   name?: Prisma.StringFilter<"Product"> | string
-  type?: Prisma.StringFilter<"Product"> | string
+  type?: Prisma.EnumProductTypeFilter<"Product"> | $Enums.ProductType
   price?: Prisma.FloatFilter<"Product"> | number
   targetAudience?: Prisma.StringFilter<"Product"> | string
   mainPain?: Prisma.StringFilter<"Product"> | string
@@ -640,7 +644,7 @@ export type ProductScalarWhereInput = {
 export type ProductCreateWithoutTasksInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -654,7 +658,7 @@ export type ProductCreateWithoutTasksInput = {
 export type ProductUncheckedCreateWithoutTasksInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -684,7 +688,7 @@ export type ProductUpdateToOneWithWhereWithoutTasksInput = {
 export type ProductUpdateWithoutTasksInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -698,7 +702,7 @@ export type ProductUpdateWithoutTasksInput = {
 export type ProductUncheckedUpdateWithoutTasksInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -712,7 +716,7 @@ export type ProductUncheckedUpdateWithoutTasksInput = {
 export type ProductCreateWithoutCopyInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -726,7 +730,7 @@ export type ProductCreateWithoutCopyInput = {
 export type ProductUncheckedCreateWithoutCopyInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -756,7 +760,7 @@ export type ProductUpdateToOneWithWhereWithoutCopyInput = {
 export type ProductUpdateWithoutCopyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -770,7 +774,7 @@ export type ProductUpdateWithoutCopyInput = {
 export type ProductUncheckedUpdateWithoutCopyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -784,7 +788,7 @@ export type ProductUncheckedUpdateWithoutCopyInput = {
 export type ProductCreateManyExpertInput = {
   id?: string
   name: string
-  type: string
+  type: $Enums.ProductType
   price: number
   targetAudience: string
   mainPain: string
@@ -796,7 +800,7 @@ export type ProductCreateManyExpertInput = {
 export type ProductUpdateWithoutExpertInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -810,7 +814,7 @@ export type ProductUpdateWithoutExpertInput = {
 export type ProductUncheckedUpdateWithoutExpertInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -824,7 +828,7 @@ export type ProductUncheckedUpdateWithoutExpertInput = {
 export type ProductUncheckedUpdateManyWithoutExpertInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   targetAudience?: Prisma.StringFieldUpdateOperationsInput | string
   mainPain?: Prisma.StringFieldUpdateOperationsInput | string
@@ -946,7 +950,7 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
-    type: string
+    type: $Enums.ProductType
     price: number
     targetAudience: string
     mainPain: string
@@ -1382,7 +1386,7 @@ export interface Prisma__ProductClient<T, Null = never, ExtArgs extends runtime.
 export interface ProductFieldRefs {
   readonly id: Prisma.FieldRef<"Product", 'String'>
   readonly name: Prisma.FieldRef<"Product", 'String'>
-  readonly type: Prisma.FieldRef<"Product", 'String'>
+  readonly type: Prisma.FieldRef<"Product", 'ProductType'>
   readonly price: Prisma.FieldRef<"Product", 'Float'>
   readonly targetAudience: Prisma.FieldRef<"Product", 'String'>
   readonly mainPain: Prisma.FieldRef<"Product", 'String'>

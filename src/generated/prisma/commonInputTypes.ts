@@ -70,6 +70,13 @@ export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
+export type EnumProductTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProductType | Prisma.EnumProductTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProductType[]
+  notIn?: $Enums.ProductType[]
+  not?: Prisma.NestedEnumProductTypeFilter<$PrismaModel> | $Enums.ProductType
+}
+
 export type FloatFilter<$PrismaModel = never> = {
   equals?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   in?: number[]
@@ -79,6 +86,16 @@ export type FloatFilter<$PrismaModel = never> = {
   gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   not?: Prisma.NestedFloatFilter<$PrismaModel> | number
+}
+
+export type EnumProductTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProductType | Prisma.EnumProductTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProductType[]
+  notIn?: $Enums.ProductType[]
+  not?: Prisma.NestedEnumProductTypeWithAggregatesFilter<$PrismaModel> | $Enums.ProductType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProductTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProductTypeFilter<$PrismaModel>
 }
 
 export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -95,6 +112,23 @@ export type FloatWithAggregatesFilter<$PrismaModel = never> = {
   _sum?: Prisma.NestedFloatFilter<$PrismaModel>
   _min?: Prisma.NestedFloatFilter<$PrismaModel>
   _max?: Prisma.NestedFloatFilter<$PrismaModel>
+}
+
+export type EnumTaskStageFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskStage | Prisma.EnumTaskStageFieldRefInput<$PrismaModel>
+  in?: $Enums.TaskStage[]
+  notIn?: $Enums.TaskStage[]
+  not?: Prisma.NestedEnumTaskStageFilter<$PrismaModel> | $Enums.TaskStage
+}
+
+export type EnumTaskStageWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskStage | Prisma.EnumTaskStageFieldRefInput<$PrismaModel>
+  in?: $Enums.TaskStage[]
+  notIn?: $Enums.TaskStage[]
+  not?: Prisma.NestedEnumTaskStageWithAggregatesFilter<$PrismaModel> | $Enums.TaskStage
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTaskStageFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTaskStageFilter<$PrismaModel>
 }
 
 export type NestedStringFilter<$PrismaModel = never> = {
@@ -164,6 +198,13 @@ export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
+export type NestedEnumProductTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProductType | Prisma.EnumProductTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProductType[]
+  notIn?: $Enums.ProductType[]
+  not?: Prisma.NestedEnumProductTypeFilter<$PrismaModel> | $Enums.ProductType
+}
+
 export type NestedFloatFilter<$PrismaModel = never> = {
   equals?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   in?: number[]
@@ -173,6 +214,16 @@ export type NestedFloatFilter<$PrismaModel = never> = {
   gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   not?: Prisma.NestedFloatFilter<$PrismaModel> | number
+}
+
+export type NestedEnumProductTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProductType | Prisma.EnumProductTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProductType[]
+  notIn?: $Enums.ProductType[]
+  not?: Prisma.NestedEnumProductTypeWithAggregatesFilter<$PrismaModel> | $Enums.ProductType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProductTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProductTypeFilter<$PrismaModel>
 }
 
 export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -189,6 +240,23 @@ export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
   _sum?: Prisma.NestedFloatFilter<$PrismaModel>
   _min?: Prisma.NestedFloatFilter<$PrismaModel>
   _max?: Prisma.NestedFloatFilter<$PrismaModel>
+}
+
+export type NestedEnumTaskStageFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskStage | Prisma.EnumTaskStageFieldRefInput<$PrismaModel>
+  in?: $Enums.TaskStage[]
+  notIn?: $Enums.TaskStage[]
+  not?: Prisma.NestedEnumTaskStageFilter<$PrismaModel> | $Enums.TaskStage
+}
+
+export type NestedEnumTaskStageWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskStage | Prisma.EnumTaskStageFieldRefInput<$PrismaModel>
+  in?: $Enums.TaskStage[]
+  notIn?: $Enums.TaskStage[]
+  not?: Prisma.NestedEnumTaskStageWithAggregatesFilter<$PrismaModel> | $Enums.TaskStage
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTaskStageFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTaskStageFilter<$PrismaModel>
 }
 
 

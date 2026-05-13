@@ -28,7 +28,7 @@ export type TaskMinAggregateOutputType = {
   id: string | null
   title: string | null
   description: string | null
-  stage: string | null
+  stage: $Enums.TaskStage | null
   responsible: string | null
   productId: string | null
   createdAt: Date | null
@@ -38,7 +38,7 @@ export type TaskMaxAggregateOutputType = {
   id: string | null
   title: string | null
   description: string | null
-  stage: string | null
+  stage: $Enums.TaskStage | null
   responsible: string | null
   productId: string | null
   createdAt: Date | null
@@ -163,7 +163,7 @@ export type TaskGroupByOutputType = {
   id: string
   title: string
   description: string
-  stage: string
+  stage: $Enums.TaskStage
   responsible: string
   productId: string
   createdAt: Date
@@ -194,7 +194,7 @@ export type TaskWhereInput = {
   id?: Prisma.StringFilter<"Task"> | string
   title?: Prisma.StringFilter<"Task"> | string
   description?: Prisma.StringFilter<"Task"> | string
-  stage?: Prisma.StringFilter<"Task"> | string
+  stage?: Prisma.EnumTaskStageFilter<"Task"> | $Enums.TaskStage
   responsible?: Prisma.StringFilter<"Task"> | string
   productId?: Prisma.StringFilter<"Task"> | string
   createdAt?: Prisma.DateTimeFilter<"Task"> | Date | string
@@ -219,7 +219,7 @@ export type TaskWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.TaskWhereInput | Prisma.TaskWhereInput[]
   title?: Prisma.StringFilter<"Task"> | string
   description?: Prisma.StringFilter<"Task"> | string
-  stage?: Prisma.StringFilter<"Task"> | string
+  stage?: Prisma.EnumTaskStageFilter<"Task"> | $Enums.TaskStage
   responsible?: Prisma.StringFilter<"Task"> | string
   productId?: Prisma.StringFilter<"Task"> | string
   createdAt?: Prisma.DateTimeFilter<"Task"> | Date | string
@@ -246,7 +246,7 @@ export type TaskScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"Task"> | string
   title?: Prisma.StringWithAggregatesFilter<"Task"> | string
   description?: Prisma.StringWithAggregatesFilter<"Task"> | string
-  stage?: Prisma.StringWithAggregatesFilter<"Task"> | string
+  stage?: Prisma.EnumTaskStageWithAggregatesFilter<"Task"> | $Enums.TaskStage
   responsible?: Prisma.StringWithAggregatesFilter<"Task"> | string
   productId?: Prisma.StringWithAggregatesFilter<"Task"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Task"> | Date | string
@@ -256,7 +256,7 @@ export type TaskCreateInput = {
   id?: string
   title: string
   description?: string
-  stage?: string
+  stage?: $Enums.TaskStage
   responsible?: string
   createdAt?: Date | string
   product: Prisma.ProductCreateNestedOneWithoutTasksInput
@@ -266,7 +266,7 @@ export type TaskUncheckedCreateInput = {
   id?: string
   title: string
   description?: string
-  stage?: string
+  stage?: $Enums.TaskStage
   responsible?: string
   productId: string
   createdAt?: Date | string
@@ -276,7 +276,7 @@ export type TaskUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  stage?: Prisma.StringFieldUpdateOperationsInput | string
+  stage?: Prisma.EnumTaskStageFieldUpdateOperationsInput | $Enums.TaskStage
   responsible?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   product?: Prisma.ProductUpdateOneRequiredWithoutTasksNestedInput
@@ -286,7 +286,7 @@ export type TaskUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  stage?: Prisma.StringFieldUpdateOperationsInput | string
+  stage?: Prisma.EnumTaskStageFieldUpdateOperationsInput | $Enums.TaskStage
   responsible?: Prisma.StringFieldUpdateOperationsInput | string
   productId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -296,7 +296,7 @@ export type TaskCreateManyInput = {
   id?: string
   title: string
   description?: string
-  stage?: string
+  stage?: $Enums.TaskStage
   responsible?: string
   productId: string
   createdAt?: Date | string
@@ -306,7 +306,7 @@ export type TaskUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  stage?: Prisma.StringFieldUpdateOperationsInput | string
+  stage?: Prisma.EnumTaskStageFieldUpdateOperationsInput | $Enums.TaskStage
   responsible?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -315,7 +315,7 @@ export type TaskUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  stage?: Prisma.StringFieldUpdateOperationsInput | string
+  stage?: Prisma.EnumTaskStageFieldUpdateOperationsInput | $Enums.TaskStage
   responsible?: Prisma.StringFieldUpdateOperationsInput | string
   productId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -403,11 +403,15 @@ export type TaskUncheckedUpdateManyWithoutProductNestedInput = {
   deleteMany?: Prisma.TaskScalarWhereInput | Prisma.TaskScalarWhereInput[]
 }
 
+export type EnumTaskStageFieldUpdateOperationsInput = {
+  set?: $Enums.TaskStage
+}
+
 export type TaskCreateWithoutProductInput = {
   id?: string
   title: string
   description?: string
-  stage?: string
+  stage?: $Enums.TaskStage
   responsible?: string
   createdAt?: Date | string
 }
@@ -416,7 +420,7 @@ export type TaskUncheckedCreateWithoutProductInput = {
   id?: string
   title: string
   description?: string
-  stage?: string
+  stage?: $Enums.TaskStage
   responsible?: string
   createdAt?: Date | string
 }
@@ -453,7 +457,7 @@ export type TaskScalarWhereInput = {
   id?: Prisma.StringFilter<"Task"> | string
   title?: Prisma.StringFilter<"Task"> | string
   description?: Prisma.StringFilter<"Task"> | string
-  stage?: Prisma.StringFilter<"Task"> | string
+  stage?: Prisma.EnumTaskStageFilter<"Task"> | $Enums.TaskStage
   responsible?: Prisma.StringFilter<"Task"> | string
   productId?: Prisma.StringFilter<"Task"> | string
   createdAt?: Prisma.DateTimeFilter<"Task"> | Date | string
@@ -463,7 +467,7 @@ export type TaskCreateManyProductInput = {
   id?: string
   title: string
   description?: string
-  stage?: string
+  stage?: $Enums.TaskStage
   responsible?: string
   createdAt?: Date | string
 }
@@ -472,7 +476,7 @@ export type TaskUpdateWithoutProductInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  stage?: Prisma.StringFieldUpdateOperationsInput | string
+  stage?: Prisma.EnumTaskStageFieldUpdateOperationsInput | $Enums.TaskStage
   responsible?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -481,7 +485,7 @@ export type TaskUncheckedUpdateWithoutProductInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  stage?: Prisma.StringFieldUpdateOperationsInput | string
+  stage?: Prisma.EnumTaskStageFieldUpdateOperationsInput | $Enums.TaskStage
   responsible?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -490,7 +494,7 @@ export type TaskUncheckedUpdateManyWithoutProductInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  stage?: Prisma.StringFieldUpdateOperationsInput | string
+  stage?: Prisma.EnumTaskStageFieldUpdateOperationsInput | $Enums.TaskStage
   responsible?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -560,7 +564,7 @@ export type $TaskPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     id: string
     title: string
     description: string
-    stage: string
+    stage: $Enums.TaskStage
     responsible: string
     productId: string
     createdAt: Date
@@ -991,7 +995,7 @@ export interface TaskFieldRefs {
   readonly id: Prisma.FieldRef<"Task", 'String'>
   readonly title: Prisma.FieldRef<"Task", 'String'>
   readonly description: Prisma.FieldRef<"Task", 'String'>
-  readonly stage: Prisma.FieldRef<"Task", 'String'>
+  readonly stage: Prisma.FieldRef<"Task", 'TaskStage'>
   readonly responsible: Prisma.FieldRef<"Task", 'String'>
   readonly productId: Prisma.FieldRef<"Task", 'String'>
   readonly createdAt: Prisma.FieldRef<"Task", 'DateTime'>

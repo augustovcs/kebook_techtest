@@ -7,6 +7,23 @@ datasource db {
   provider = "sqlite"
 }
 
+enum ProductType {
+  COURSE
+  EBOOK
+  MENTORSHIP
+  CONSULTING
+  COMMUNITY
+}
+
+enum TaskStage {
+  MARKET_ANALYSIS
+  COPY
+  DESIGN
+  DEVELOPMENT
+  REVIEW
+  PUBLISHED
+}
+
 model Expert {
   id        String    @id @default(cuid())
   name      String
@@ -20,30 +37,30 @@ model Expert {
 }
 
 model Product {
-  id                     String   @id @default(cuid())
+  id                     String      @id @default(cuid())
   name                   String
-  type                   String
+  type                   ProductType
   price                  Float
   targetAudience         String
   mainPain               String
   promisedTransformation String
-  notes                  String   @default("")
+  notes                  String      @default("")
   expertId               String
-  createdAt              DateTime @default(now())
-  expert                 Expert   @relation(fields: [expertId], references: [id], onDelete: Cascade)
+  createdAt              DateTime    @default(now())
+  expert                 Expert      @relation(fields: [expertId], references: [id], onDelete: Cascade)
   tasks                  Task[]
   copy                   Copy?
 }
 
 model Task {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
-  description String   @default("")
-  stage       String   @default("MARKET_ANALYSIS")
-  responsible String   @default("")
+  description String    @default("")
+  stage       TaskStage @default(MARKET_ANALYSIS)
+  responsible String    @default("")
   productId   String
-  createdAt   DateTime @default(now())
-  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+  product     Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
 
 model Copy {

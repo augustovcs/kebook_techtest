@@ -826,9 +826,23 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
 
 
 /**
+ * Reference to a field of type 'ProductType'
+ */
+export type EnumProductTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProductType'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'TaskStage'
+ */
+export type EnumTaskStageFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TaskStage'>
     
 
 

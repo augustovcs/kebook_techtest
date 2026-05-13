@@ -1,4 +1,4 @@
-import type { Expert, Product, Task, Copy } from "@/generated/prisma";
+import type { Expert, Product, Task, Copy, ProductType, TaskStage } from "@/generated/prisma/client";
 
 export type ExpertWithProducts = Expert & {
   products: Product[];
@@ -33,7 +33,7 @@ export interface ExpertFormData {
 
 export interface ProductFormData {
   name: string;
-  type: string;
+  type: ProductType;
   price: number;
   targetAudience: string;
   mainPain: string;
@@ -45,7 +45,7 @@ export interface ProductFormData {
 export interface TaskFormData {
   title: string;
   description: string;
-  stage: string;
+  stage: TaskStage;
   responsible: string;
   productId: string;
 }
