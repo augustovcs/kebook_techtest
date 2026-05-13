@@ -24,7 +24,7 @@ import {
 } from '@/components/ui/select';
 import { Plus, Loader } from 'lucide-react';
 import { toast } from 'sonner';
-import { PRODUCT_TYPE_OPTIONS } from '@/lib/constants';
+import { PRODUCT_TYPE_OPTIONS, PRODUCT_TYPES } from '@/lib/constants';
 
 //console.log('T1')
 
@@ -115,7 +115,9 @@ export function ProductDialog({
                 onValueChange={(value) => setValue('type', value as any)}
               >
                 <SelectTrigger className="bg-zinc-700 border-zinc-600 text-white">
-                  <SelectValue />
+                  <SelectValue> 
+                    {PRODUCT_TYPES[watch('type') as keyof typeof PRODUCT_TYPES]}
+                    </SelectValue>
                 </SelectTrigger>
                 <SelectContent className="bg-zinc-700 border-zinc-600">
                   {PRODUCT_TYPE_OPTIONS.map((option) => (
