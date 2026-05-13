@@ -26,7 +26,7 @@ import { Plus, Loader } from 'lucide-react';
 import { toast } from 'sonner';
 import { PRODUCT_TYPE_OPTIONS } from '@/lib/constants';
 
-console.log('T1')
+//console.log('T1')
 
 interface ProductDialogProps {
   open?: boolean;
@@ -46,7 +46,8 @@ export function ProductDialog({
   const setOpen = onOpenChange ?? setInternalOpen;
 
   const { data: experts } = useExpertsList();
-  console.log('T2')
+//  console.log('T2')
+
 
   const {
     register,
@@ -68,6 +69,10 @@ export function ProductDialog({
       expertId: '',
     },
   });
+
+  const expertId = watch('expertId');
+  const selectedExpert = experts?.find((e) => e.id === expertId);
+
 
   const onSubmitHandler = async (data: ProductInput) => {
     try {
@@ -146,7 +151,11 @@ export function ProductDialog({
                 }}
               >
                 <SelectTrigger className="bg-zinc-700 border-zinc-600 text-white">
-                  <SelectValue placeholder="Selecione um expert" />
+                  <SelectValue placeholder="Selecione um expert"> 
+                    {
+                        selectedExpert?.name || 'Selecione um expert'
+                    }
+                    </SelectValue>
                 </SelectTrigger>
                 <SelectContent className="bg-zinc-700 border-zinc-600">
                   {experts?.map((expert) => (
