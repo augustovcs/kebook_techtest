@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Expert {
+  id        String    @id @default(cuid())
+  name      String
+  niche     String
+  instagram String    @default("")
+  youtube   String    @default("")
+  email     String    @default("")
+  notes     String    @default("")
+  createdAt DateTime  @default(now())
+  products  Product[]
+}
+
+model Product {
+  id                     String   @id @default(cuid())
+  name                   String
+  type                   String
+  price                  Float
+  targetAudience         String
+  mainPain               String
+  promisedTransformation String
+  notes                  String   @default("")
+  expertId               String
+  createdAt              DateTime @default(now())
+  expert                 Expert   @relation(fields: [expertId], references: [id], onDelete: Cascade)
+  tasks                  Task[]
+  copy                   Copy?
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @default("")
+  stage       String   @default("MARKET_ANALYSIS")
+  responsible String   @default("")
+  productId   String
+  createdAt   DateTime @default(now())
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Copy {
+  id          String   @id @default(cuid())
+  headline    String
+  subheadline String
+  benefits    String
+  audience    String
+  cta         String
+  faq         String
+  productId   String   @unique
+  createdAt   DateTime @default(now())
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
