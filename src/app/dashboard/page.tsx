@@ -79,12 +79,12 @@ export default function DashboardPage() {
 
         <Card className="bg-zinc-800 border-zinc-700">
           <CardHeader>
-            <CardTitle className="text-white">Sobre o Kebook Projects</CardTitle>
+            <CardTitle className="text-white">Sobre o Projeto</CardTitle>
             <CardDescription>Sistema profissional de gestão</CardDescription>
           </CardHeader>
           <CardContent className="text-zinc-300 space-y-3">
             <p>
-              O Kebook Projects é um sistema completo para gerenciar infoprodutos digitais.
+              O sistema é completo para gerenciar infoprodutos digitais.
             </p>
             <p>
               Organize seus experts, produtos, tarefas e gere conteúdo com IA de forma profissional.

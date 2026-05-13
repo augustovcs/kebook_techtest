@@ -5,10 +5,7 @@ export const productRepository = {
   async findAll(search?: string, page = 1, pageSize = 10) {
     const where = search
       ? {
-          OR: [
-            { name: { contains: search } },
-            { type: { contains: search } },
-          ],
+          name: { contains: search },
         }
       : {};
 

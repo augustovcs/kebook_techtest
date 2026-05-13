@@ -14,25 +14,29 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Loader } from 'lucide-react';
+import { Pencil, Loader } from 'lucide-react';
 import { toast } from 'sonner';
 
-interface ExpertDialogProps {
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
-  onSubmit: (data: ExpertInput) => Promise<void>;
+interface ExpertEditProps {
+  expert: {
+    id: string;
+    name: string;
+    niche: string;
+    email?: string;
+    instagram?: string;
+    youtube?: string;
+    notes?: string;
+  };
+  onSubmit: (id: string, data: ExpertInput) => Promise<void>;
   isLoading?: boolean;
 }
 
-export function ExpertDialog({
-  open,
-  onOpenChange,
+export function ExpertEdit({
+  expert,
   onSubmit,
   isLoading,
-}: ExpertDialogProps) {
-  const [internalOpen, setInternalOpen] = useState(false);
-  const isOpen = open ?? internalOpen;
-  const setOpen = onOpenChange ?? setInternalOpen;
+}: ExpertEditProps) {
+  const [open, setOpen] = useState(false);
 
   const {
     register,
@@ -42,36 +46,41 @@ export function ExpertDialog({
   } = useForm<ExpertInput>({
     resolver: zodResolver(expertSchema),
     defaultValues: {
-      name: '',
-      niche: '',
-      email: '',
-      instagram: '',
-      youtube: '',
-      notes: '',
+      name: expert.name,
+      niche: expert.niche,
+      email: expert.email || '',
+      instagram: expert.instagram || '',
+      youtube: expert.youtube || '',
+      notes: expert.notes || '',
     },
   });
 
   const onSubmitHandler = async (data: ExpertInput) => {
     try {
-      await onSubmit(data);
-      reset();
+      await onSubmit(expert.id, data);
       setOpen(false);
     } catch (error) {
-      toast.error('Erro ao criar expert');
+      toast.error('Erro ao atualizar expert');
+    }
+  };
+
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+    if (!newOpen) {
+      reset();
     }
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger>
-        <Button className="gap-2 bg-blue-600 hover:bg-blue-700">
-          <Plus size={20} />
-          Novo Expert
+        <Button variant="ghost" size="sm" className="text-zinc-400 hover:text-white">
+          <Pencil size={16} />
         </Button>
       </DialogTrigger>
       <DialogContent className="bg-zinc-800 border-zinc-700 text-white max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-white">Criar Novo Expert</DialogTitle>
+          <DialogTitle className="text-white">Editar Expert</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmitHandler)} className="space-y-4">
           <div>
@@ -147,7 +156,7 @@ export function ExpertDialog({
               className="flex-1 gap-2 bg-blue-600 hover:bg-blue-700"
             >
               {isLoading && <Loader className="animate-spin" size={16} />}
-              Criar
+              Salvar
             </Button>
           </div>
         </form>

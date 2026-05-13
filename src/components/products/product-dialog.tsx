@@ -26,6 +26,8 @@ import { Plus, Loader } from 'lucide-react';
 import { toast } from 'sonner';
 import { PRODUCT_TYPE_OPTIONS } from '@/lib/constants';
 
+//console.log('T1')
+
 interface ProductDialogProps {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
@@ -44,6 +46,8 @@ export function ProductDialog({
   const setOpen = onOpenChange ?? setInternalOpen;
 
   const { data: experts } = useExpertsList();
+//  console.log('T2')
+
 
   const {
     register,
@@ -66,6 +70,10 @@ export function ProductDialog({
     },
   });
 
+  const expertId = watch('expertId');
+  const selectedExpert = experts?.find((e) => e.id === expertId);
+
+
   const onSubmitHandler = async (data: ProductInput) => {
     try {
       await onSubmit(data);
@@ -78,7 +86,7 @@ export function ProductDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <Button className="gap-2 bg-blue-600 hover:bg-blue-700">
           <Plus size={20} />
           Novo Produto
@@ -136,10 +144,18 @@ export function ProductDialog({
               <label className="block text-sm font-medium mb-1">Expert</label>
               <Select
                 value={watch('expertId')}
-                onValueChange={(value) => setValue('expertId', value)}
+                onValueChange={(value) => {
+                  if (typeof value === 'string') {
+                    setValue('expertId', value);
+                  }
+                }}
               >
                 <SelectTrigger className="bg-zinc-700 border-zinc-600 text-white">
-                  <SelectValue placeholder="Selecione um expert" />
+                  <SelectValue placeholder="Selecione um expert"> 
+                    {
+                        selectedExpert?.name || 'Selecione um expert'
+                    }
+                    </SelectValue>
                 </SelectTrigger>
                 <SelectContent className="bg-zinc-700 border-zinc-600">
                   {experts?.map((expert) => (

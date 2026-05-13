@@ -1,18 +1,22 @@
 'use client';
 
 import { type ExpertWithProducts } from '@/types';
+import { type ExpertInput } from '@/schemas/expert.schema';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Mail, Trash2, ExternalLink } from 'lucide-react';
+import { ExpertEdit } from '@/components/experts/expert-edit';
+import { Mail, Trash2 } from 'lucide-react';
 
 interface ExpertsTableProps {
   experts: ExpertWithProducts[];
+  onEdit: (id: string, data: ExpertInput) => Promise<void>;
   onDelete: (id: string) => void;
+  isEditing?: boolean;
   isDeleting?: boolean;
 }
 
-export function ExpertsTable({ experts, onDelete, isDeleting }: ExpertsTableProps) {
+export function ExpertsTable({ experts, onEdit, onDelete, isEditing, isDeleting }: ExpertsTableProps) {
   if (experts.length === 0) {
     return (
       <div className="text-center py-12">
@@ -56,7 +60,12 @@ export function ExpertsTable({ experts, onDelete, isDeleting }: ExpertsTableProp
                 )}
               </TableCell>
               <TableCell className="text-zinc-300">{expert.products.length}</TableCell>
-              <TableCell className="text-right">
+              <TableCell className="text-right flex items-center justify-end gap-2">
+                <ExpertEdit
+                  expert={expert}
+                  onSubmit={onEdit}
+                  isLoading={isEditing}
+                />
                 <Button
                   variant="ghost"
                   size="sm"

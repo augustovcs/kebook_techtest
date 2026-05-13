@@ -1,6 +1,7 @@
 'use client';
 
 import { type TaskWithProduct } from '@/types';
+import { type TaskStage } from '@/generated/prisma/enums';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -8,7 +9,7 @@ import { Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { TASK_STAGE_ORDER } from '@/lib/constants';
 
 interface KanbanColumnProps {
-  stage: string;
+  stage: TaskStage;
   label: string;
   color: string;
   tasks: TaskWithProduct[];

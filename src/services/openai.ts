@@ -1,8 +1,15 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+let openai: OpenAI | null = null;
+
+function getOpenAIClient(): OpenAI {
+  if (!openai) {
+    openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+  }
+  return openai;
+}
 
 interface CopyGenerationInput {
   productName: string;
@@ -26,6 +33,8 @@ interface GeneratedCopy {
 export async function generateCopyWithAI(
   input: CopyGenerationInput
 ): Promise<GeneratedCopy> {
+  const client = getOpenAIClient();
+
   const prompt = `Você é um copywriter profissional especializado em infoprodutos digitais.
   
 Com base nas informações abaixo, gere uma copy completa para uma landing page de vendas.
@@ -48,7 +57,7 @@ Retorne APENAS um JSON válido (sem markdown, sem code blocks) com a seguinte es
   "faq": "5 perguntas e respostas no formato: P: pergunta? R: resposta | P: pergunta? R: resposta"
 }`;
 
-  const completion = await openai.chat.completions.create({
+  const completion = await client.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
       {
