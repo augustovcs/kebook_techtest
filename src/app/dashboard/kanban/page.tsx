@@ -44,7 +44,7 @@ export default function KanbanPage() {
                 </SelectValue>
             </SelectTrigger>
 
-            <SelectContent className="bg-zinc-800 border-zinc-700">
+            <SelectContent className="bg-zinc-950 border border-zinc-800 text-white rounded-xl">
                 {products.data?.data?.map((product) => (
                 <SelectItem key={product.id} value={product.id}>
                     {product.name}
