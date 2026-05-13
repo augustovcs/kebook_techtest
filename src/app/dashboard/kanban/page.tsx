@@ -6,8 +6,31 @@ import { useProducts } from '@/hooks/use-products';
 import { KanbanBoard } from '@/components/kanban/kanban-board';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useCreateTask } from '@/hooks/use-tasks';
+import { TaskStage } from '@/generated/prisma/enums';
+import { CardDescription } from '@/components/ui/card';
+
+
+
 
 export default function KanbanPage() {
+
+    const createTask = useCreateTask();
+
+    const handleCreateTask = async (data: {
+    title: string;
+    description?: string;
+    stage: TaskStage;
+    }) => {
+    await createTask.mutateAsync({
+        ...data,
+        productId: selectedProductId,
+        responsible: '',
+        description: ''
+    });
+    };
+
+
   const [selectedProductId, setSelectedProductId] = useState<string>('');
   const products = useProducts('', 1);
   const tasks = useTasks(selectedProductId);
@@ -66,7 +89,9 @@ export default function KanbanPage() {
           ))}
         </div>
       ) : (
-        <KanbanBoard tasks={tasks.data || []} productId={selectedProductId} />
+        <KanbanBoard tasks={tasks.data || []} 
+        productId={selectedProductId} 
+        onCreateTask={handleCreateTask}/>
       )}
     </div>
   );
