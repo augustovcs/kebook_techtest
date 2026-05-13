@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { type TaskStage } from "@/generated/prisma/enums";
 import type { TaskInput } from "@/schemas/task.schema";
 
 export const taskRepository = {
@@ -33,7 +34,7 @@ export const taskRepository = {
     });
   },
 
-  async updateStage(id: string, stage: string) {
+  async updateStage(id: string, stage: TaskStage) {
     return prisma.task.update({
       where: { id },
       data: { stage },

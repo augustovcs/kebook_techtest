@@ -1,8 +1,15 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+let openai: OpenAI | null = null;
+
+function getOpenAIClient(): OpenAI {
+  if (!openai) {
+    openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+  }
+  return openai;
+}
 
 interface CopyGenerationInput {
   productName: string;
@@ -26,7 +33,7 @@ interface GeneratedCopy {
 export async function generateCopyWithAI(
   input: CopyGenerationInput
 ): Promise<GeneratedCopy> {
-  const prompt = `Você é um copywriter profissional especializado em infoprodutos digitais.
+  const client = getOpenAIClient();
   
 Com base nas informações abaixo, gere uma copy completa para uma landing page de vendas.
 

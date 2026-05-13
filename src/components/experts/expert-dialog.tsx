@@ -63,7 +63,7 @@ export function ExpertDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <Button className="gap-2 bg-blue-600 hover:bg-blue-700">
           <Plus size={20} />
           Novo Expert

@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kebook Projects",
+  title: "Kebook - TECH EXAM",
   description: "Sistema profissional de gestão de projetos e marketing para infoprodutos digitais",
   keywords: ["marketing", "infoprodutos", "gestão", "projetos"],
 };

@@ -100,7 +100,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-zinc-800 py-8 text-center text-zinc-500">
-        <p>Kebook Projects © 2026. Todos os direitos reservados.</p>
+        <p>Augusto Berriel © 2026. Todos os direitos reservados.</p>
       </footer>
     </div>
   );

@@ -13,7 +13,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         <div className="p-6 border-b border-zinc-800">
           <h1 className="text-2xl font-bold">
             <span className="text-white">Kebook</span>
-            <span className="text-blue-500"> Projects</span>
+            <span className="text-blue-500">Tech Exam - v1</span>
           </h1>
         </div>
 
