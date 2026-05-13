@@ -19,14 +19,13 @@ export default function KanbanPage() {
 
     const handleCreateTask = async (data: {
     title: string;
-    description?: string;
+    description: string;
     stage: TaskStage;
     }) => {
     await createTask.mutateAsync({
         ...data,
         productId: selectedProductId,
         responsible: '',
-        description: ''
     });
     };
 
