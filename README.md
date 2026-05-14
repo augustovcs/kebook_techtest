@@ -2,6 +2,15 @@
 
 Sistema completo para gestão e escala de infoprodutos digitais, com organização de experts, produtos e tarefas em um fluxo estruturado. Inclui integração com inteligência artificial para geração de conteúdo e automação de processos.
 
+## Resumo da geração do projeto
+
+O foco principal do projeto foi garantir a geração e manipulação correta dos resultados e valores, priorizando a integração consistente entre backend e frontend por meio da implementação de hooks, endpoints e fluxo de comunicação da aplicação.
+
+A estrutura foi desenvolvida visando clareza, organização e funcionalidade, assegurando que as principais regras de negócio e interações estivessem operando de forma adequada.
+
+Em relação à interface visual, alguns elementos como cores de botões, barras e labels ainda podem apresentar pequenas inconsistências visuais. No entanto, esses ajustes fazem parte de uma camada de refinamento estético que pode ser facilmente evoluída posteriormente, já que a prioridade desta entrega foi a construção sólida das funcionalidades centrais da aplicação.
+
+
 ## Características
 
 - 🎯 **Gestão de Experts**: Cadastro e organização de especialistas com nichos, redes sociais e contatos
@@ -254,6 +263,7 @@ src/
 
 ## Melhorias Futuras
 
+- [ ] Ajuste completo de cores e design
 - [ ] Autenticação e autorização (NextAuth.js)
 - [ ] Múltiplos usuários com permissões
 - [ ] Drag and drop no Kanban
