@@ -1,6 +1,6 @@
-# Kebook Projects
+# Kebook - Teste Tech
 
-Sistema profissional full stack para gestão de infoprodutos digitais. Organize experts, produtos, tarefas e gere conteúdo com IA integrada.
+Sistema completo para gestão e escala de infoprodutos digitais, com organização de experts, produtos e tarefas em um fluxo estruturado. Inclui integração com inteligência artificial para geração de conteúdo e automação de processos.
 
 ## Características
 
@@ -44,7 +44,7 @@ Sistema profissional full stack para gestão de infoprodutos digitais. Organize 
 1. Clone o repositório:
 ```bash
 git clone <repository-url>
-cd kebook-projects
+cd KebookTechCode
 ```
 
 2. Instale as dependências:
@@ -52,15 +52,15 @@ cd kebook-projects
 npm install
 ```
 
-3. Configure as variáveis de ambiente:
+3. Configure as variáveis de ambiente(cria um novo arquivo chamado `.env` com base no `.env.example`):
 ```bash
-cp .env.example .env.local
+cp .env.example .env
 ```
 
-4. Configure o arquivo `.env.local`:
+4. Configure o arquivo `.env`:
 ```env
 DATABASE_URL="file:./dev.db"
-OPENAI_API_KEY="sk-..."
+OPENAI_API_KEY="SUA CHAVE DA OPEN API"
 ```
 
 5. Execute as migrações do Prisma:

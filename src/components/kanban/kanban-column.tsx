@@ -30,7 +30,7 @@ export function KanbanColumn({
   const canMoveRight = stageIndex < TASK_STAGE_ORDER.length - 1;
 
   return (
-    <div className="bg-zinc-800/50 rounded-lg border border-zinc-700 flex flex-col min-h-96">
+    <div className="bg-zinc-800/50 rounded-xl border border-zinc-800 flex flex-col min-h-96 overflow-hidden">
 
       {/* HEADER */}
       <div className={`${color} border-b border-zinc-700 p-4`}>

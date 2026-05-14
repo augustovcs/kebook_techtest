@@ -223,7 +223,7 @@ export function ProductDialog({
               type="button"
               variant="outline"
               onClick={() => setOpen(false)}
-              className="flex-1"
+              className="flex-1 text-white bg-red-500"
             >
               Cancelar
             </Button>

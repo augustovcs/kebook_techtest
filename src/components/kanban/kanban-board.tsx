@@ -92,7 +92,7 @@ export function KanbanBoard({
 
       {/* BOTÃO GLOBAL */}
       <div className="flex justify-end">
-        <Button onClick={() => setOpen(true)}>
+        <Button className='gap-2 bg-blue-600 hover:bg-blue-700' onClick={() => setOpen(true)}>
           + Nova tarefa
         </Button>
       </div>
