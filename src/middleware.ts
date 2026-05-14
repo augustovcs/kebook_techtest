@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (pathname === '/aaa') {
+  if (pathname === '/desativado') {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
