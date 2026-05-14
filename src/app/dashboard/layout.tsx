@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import Link from "next/link";
-import { Home, Users, Package, Kanban, Settings } from "lucide-react";
+import { Home, Users, Package, Kanban, Settings, FileText } from "lucide-react";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -48,6 +48,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           >
             <Kanban size={20} />
             <span className="font-medium">Kanban</span>
+          </Link>
+
+          <Link
+            href="/dashboard/copy"
+            className="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors"
+          >
+            <FileText size={20} />
+            <span className="font-medium">Copy IA</span>
           </Link>
         </nav>
 

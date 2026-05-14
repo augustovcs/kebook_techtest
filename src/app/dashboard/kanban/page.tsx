@@ -15,22 +15,22 @@ import { CardDescription } from '@/components/ui/card';
 
 export default function KanbanPage() {
 
-    const createTask = useCreateTask();
-
-    const handleCreateTask = async (data: {
-    title: string;
-    description: string;
-    stage: TaskStage;
-    }) => {
-    await createTask.mutateAsync({
-        ...data,
-        productId: selectedProductId,
-        responsible: '',
-    });
-    };
-
-
   const [selectedProductId, setSelectedProductId] = useState<string>('');
+  const createTask = useCreateTask();
+
+  const handleCreateTask = async (data: {
+    title: string;
+    description?: string;
+    stage: TaskStage;
+  }) => {
+    await createTask.mutateAsync({
+      title: data.title,
+      description: data.description || '',
+      stage: data.stage,
+      productId: selectedProductId,
+      responsible: '',
+    });
+  };
   const products = useProducts('', 1);
   const tasks = useTasks(selectedProductId);
 

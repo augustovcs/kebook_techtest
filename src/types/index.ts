@@ -72,3 +72,10 @@ export interface PaginatedResponse<T> {
   pageSize: number;
   totalPages: number;
 }
+
+export interface DashboardStats {
+  experts: number;
+  products: number;
+  tasks: number;
+  copies: number;
+}
