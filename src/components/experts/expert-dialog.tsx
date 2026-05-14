@@ -132,12 +132,12 @@ export function ExpertDialog({
             />
           </div>
 
-          <div className="flex gap-3 pt-4">
+          <div className="flex gap-3 pt-4 ">
             <Button
               type="button"
               variant="outline"
               onClick={() => setOpen(false)}
-              className="flex-1"
+              className="flex-1 text-white bg-red-500"
             >
               Cancelar
             </Button>

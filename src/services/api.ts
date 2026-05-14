@@ -7,6 +7,7 @@ import type {
   ExpertWithProducts,
   ProductWithRelations,
   TaskWithProduct,
+  DashboardStats,
 } from "@/types";
 import type { Expert, Copy } from "@/generated/prisma/client";
 
@@ -127,5 +128,11 @@ export const copyApi = {
   },
   get(productId: string) {
     return request<Copy>(`/copy?productId=${productId}`);
+  },
+};
+
+export const dashboardApi = {
+  stats() {
+    return request<DashboardStats>("/dashboard/stats");
   },
 };

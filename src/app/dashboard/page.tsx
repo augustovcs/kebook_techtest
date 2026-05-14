@@ -1,13 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-import { prisma } from '@/lib/prisma';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { TrendingUp, Users, Package, Zap } from 'lucide-react';
+import { useDashboardStats } from '@/hooks/use-dashboard';
 
 
 export default function DashboardPage() {
+  const stats = useDashboardStats();
+
   return (
     <div className="p-8 space-y-8">
       <div>
@@ -18,28 +19,28 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatsCard
           title="Experts"
-          value={0}
+          value={stats.data?.experts ?? 0}
           icon={Users}
           color="text-blue-400"
           bgColor="bg-blue-500/10"
         />
         <StatsCard
           title="Produtos"
-          value={0}
+          value={stats.data?.products ?? 0}
           icon={Package}
           color="text-cyan-400"
           bgColor="bg-cyan-500/10"
         />
         <StatsCard
           title="Tarefas"
-          value={0}
+          value={stats.data?.tasks ?? 0}
           icon={TrendingUp}
           color="text-amber-400"
           bgColor="bg-amber-500/10"
         />
         <StatsCard
           title="Gerações com IA"
-          value={0}
+          value={stats.data?.copies ?? 0}
           icon={Zap}
           color="text-purple-400"
           bgColor="bg-purple-500/10"

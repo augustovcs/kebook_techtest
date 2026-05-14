@@ -53,7 +53,7 @@ export function ProductsTable({ products, onDelete, isDeleting }: ProductsTableP
                 </TableCell>
                 <TableCell className="text-zinc-400">{product.tasks.length}</TableCell>
                 <TableCell className="text-right space-x-2">
-                  <Link href={`/preview/product/${product.id}`}>
+                  <Link href={`/preview/produto/${product.id}`}>
                     <Button
                       variant="ghost"
                       size="sm"
