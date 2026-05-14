@@ -295,14 +295,17 @@ src/
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-## Licença
+## Licença - All Rights Reserved
 
-Este projeto é licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
+Copyright (c) 2026
+
+Todos os direitos reservados.
+
+Este projeto foi desenvolvido exclusivamente para fins de avaliação técnica.
+Nenhuma parte deste código pode ser copiada, modificada, distribuída ou utilizada sem autorização expressa do autor.
 
 ## Suporte
 
 Para suporte, abra uma issue no GitHub ou contate o desenvolvedor.
 
 ---
-
-**Desenvolvido com ❤️ usando Next.js, React e TypeScript**
